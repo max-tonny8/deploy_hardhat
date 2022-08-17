@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
+import "hardhat/console.sol";
+
 error Whitelist_alreadyExist(address _address, string message);
 error Whitelist_limitOverflow(string message);
 
