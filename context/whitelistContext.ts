@@ -6,11 +6,11 @@ export const contextDefaultValues: IWhitelistContext = {
   isConnected: false,
   web3Provider: undefined,
   signer: undefined,
-  whitelistContract: null,
+  // whitelistContract: null,
   // getMaxListedAddress(whitelistContract: Contract): Promise<string> {
   //   return new Promise(() => "");
   // },
-  // connectWallet() {},
+  connectWallet() {},
 };
 
 export const WhitelistContext =
