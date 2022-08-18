@@ -11,6 +11,9 @@ export const contextDefaultValues: IWhitelistContext = {
   getJoinedAddress(): Promise<number> {
     return new Promise(() => 0);
   },
+  isJoined(): Promise<boolean> {
+    return new Promise(() => false);
+  },
   connectWallet() {},
 };
 

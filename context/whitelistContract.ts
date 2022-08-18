@@ -36,3 +36,11 @@ export const getJoined = async (): Promise<number> => {
   const whitelistContract = await getWhitelistContract(provider);
   return await whitelistContract.getAddressesListedCount();
 };
+
+export const isInWhitelist = async (address: string): Promise<boolean> => {
+  const provider = new ethers.providers.JsonRpcProvider(
+    "http://localhost:8545"
+  );
+  const whitelistContract = await getWhitelistContract(provider);
+  return await whitelistContract.getWhitelistAddress(address);
+};
