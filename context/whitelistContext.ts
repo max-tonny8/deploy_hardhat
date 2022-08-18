@@ -1,4 +1,3 @@
-import { Contract } from "ethers";
 import { createContext } from "react";
 import { IWhitelistContext } from "../interfaces/IWhitelistContext";
 
@@ -6,10 +5,12 @@ export const contextDefaultValues: IWhitelistContext = {
   isConnected: false,
   web3Provider: undefined,
   signer: undefined,
-  // whitelistContract: null,
-  // getMaxListedAddress(whitelistContract: Contract): Promise<string> {
-  //   return new Promise(() => "");
-  // },
+  getMaxWhitelistAddresses(): Promise<number> {
+    return new Promise(() => 0);
+  },
+  getJoinedAddress(): Promise<number> {
+    return new Promise(() => 0);
+  },
   connectWallet() {},
 };
 

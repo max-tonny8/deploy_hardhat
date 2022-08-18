@@ -20,3 +20,19 @@ export const getWhitelistContract = async (
   );
   return whitelistContract;
 };
+
+export const getMaxListedAddress = async (): Promise<number> => {
+  const provider = new ethers.providers.JsonRpcProvider(
+    "http://localhost:8545"
+  );
+  const whitelistContract = await getWhitelistContract(provider);
+  return await whitelistContract.getMaxWhitelistAddresses();
+};
+
+export const getJoined = async (): Promise<number> => {
+  const provider = new ethers.providers.JsonRpcProvider(
+    "http://localhost:8545"
+  );
+  const whitelistContract = await getWhitelistContract(provider);
+  return await whitelistContract.getAddressesListedCount();
+};

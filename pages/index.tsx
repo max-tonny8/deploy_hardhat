@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { HomeContainer } from '../components/home/HomeContainer'
+
 
 
 const Home: NextPage = () => {
@@ -10,8 +12,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Whitelist Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section>
-        Home
+      <section className='w-[80%] my-2 mx-auto'>
+        <HomeContainer />
       </section>
     </div>
   )
