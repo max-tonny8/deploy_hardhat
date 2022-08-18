@@ -23,11 +23,11 @@ async function main() {
     abi: JSON.parse(whitelist.interface.format("json") as string),
   };
 
-  whitelistJson[chainId!.toString()] = whitelist;
+  whitelistJson[chainId!.toString()] = whitelistAbi;
 
   writeFileSync(
     path.resolve(__dirname, "../", "lib", "Whitelist.json"),
-    JSON.stringify(whitelistAbi, null, 2)
+    JSON.stringify(whitelistJson, null, 2)
   );
 }
 

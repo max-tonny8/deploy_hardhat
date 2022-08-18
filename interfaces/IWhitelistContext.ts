@@ -7,4 +7,5 @@ export interface IWhitelistContext {
   connectWallet: () => void;
   getMaxWhitelistAddresses: () => Promise<number>;
   getJoinedAddress: () => Promise<number>;
+  isJoined: (address: string) => Promise<boolean>;
 }

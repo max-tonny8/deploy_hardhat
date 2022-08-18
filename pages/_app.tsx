@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Layout } from "../components/layout/Layout";
 import { WhitelistProvider } from "../context/WhitelistProvider";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const styles = {
   container: `flex flex-col bg-gradient h-[100vh]`,

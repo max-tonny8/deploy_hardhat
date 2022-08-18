@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { connect } from "./walletConnection";
 import { WhitelistContext } from "./whitelistContext";
-import { getJoined, getMaxListedAddress } from './whitelistContract';
+import { getJoined, getMaxListedAddress, isInWhitelist } from './whitelistContract';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -15,8 +15,6 @@ export const WhitelistProvider = ({ children }: Props) => {
     providers.Web3Provider | undefined
   >(undefined);
   const [signer, setSigner] = useState<string | undefined>(undefined);
-  const [joined, setJoined] = useState(0);
-  const [maxListed, setJMaxLited] = useState(0);
 
   const router = useRouter();
 
@@ -76,6 +74,10 @@ export const WhitelistProvider = ({ children }: Props) => {
   const getJoinedAddress = async (): Promise<number> => {
     return await getJoined();
   };
+
+  const isJoined = async (address:string): Promise<boolean> => {
+    return await isInWhitelist(address);
+  }
   
   return (
     <WhitelistContext.Provider value={{
@@ -84,7 +86,8 @@ export const WhitelistProvider = ({ children }: Props) => {
       signer,
       connectWallet,
       getMaxWhitelistAddresses,
-      getJoinedAddress
+      getJoinedAddress,
+      isJoined,
     }}>
       {children}
     </WhitelistContext.Provider>
